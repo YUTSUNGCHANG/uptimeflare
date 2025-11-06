@@ -2,7 +2,7 @@ import { MaintenanceConfig, PageConfig, WorkerConfig } from './types/config'
 
 const pageConfig: PageConfig = {
   // Title for your status page
-  title: "喵窝·服务状态",
+  title: "ATEAM·服务状态",
   // Links shown at the header of your status page, could set `highlight` to `true`
   links: [
     { link: 'https://docs.nya.one/', label: '资料室' },
