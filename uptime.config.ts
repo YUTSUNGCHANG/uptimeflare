@@ -198,6 +198,17 @@ const workerConfig: WorkerConfig = {
       expectedCodes: [200],
       timeout: 10000,
     },
+    {
+      id: 'live_ninja',
+      name: 'ninja VDO',
+      method: 'GET',
+      target: 'https://live.ytcapp.eu.org/media/favicon-32x32.png',
+      tooltip: '直播工具',
+      statusPageLink: 'https://live.ytcapp.eu.org/',
+      hideLatencyChart: false,
+      expectedCodes: [200],
+      timeout: 10000,
+    },
   ],
   notification: {
     // [Optional] apprise API server URL
