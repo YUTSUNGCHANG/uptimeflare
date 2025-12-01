@@ -5,7 +5,7 @@ const pageConfig: PageConfig = {
   title: "ATEAM's status page",
   // Links shown at the header of your status page, could set `highlight` to `true`
   links: [
-    { link: 'https://radar.cloudflare.com/', label: '资料室' },
+    { link: 'https://radar.cloudflare.com/', label: 'Radar' },
     { link: 'https://cftest.kangjw.me/', label: 'ATEAM', highlight: true },
   ],
   // [OPTIONAL] Group your monitors
@@ -13,9 +13,9 @@ const pageConfig: PageConfig = {
   // If specified, monitors will be grouped and ordered, not-listed monitors will be invisble (but still monitored)
   group: {
     '💓 核心系统': ['live_ninja'],
-    '✨ 周边生态': [],
-    '🛠️ 辅助功能': ['myip', 'Alert'],
-    '🧪 开发环境': ['Splunk'],
+    '✨ DNS服務': ['google_dns_ping', 'cloudflare_ping'],
+    '🛠️ 輔助功能': ['myip', 'Alert'],
+    '🧪 開發環境': ['Splunk'],
   },
 }
 
@@ -120,6 +120,22 @@ const workerConfig: WorkerConfig = {
       expectedCodes: [200],
       timeout: 10000,
     },    
+    {
+      id: 'google_dns_ping',
+      name: 'Google DNS (8.8.8.8)',
+      method: 'TCP_PING',  // 使用 TCP_PING 进行 ICMP 检测
+      target: '8.8.8.8:53',  // IP 地址后跟标准端口
+      tooltip: 'Ping Google DNS',
+      timeout: 5000,  // 5 秒超时
+    },
+    {
+      id: 'cloudflare_ping',
+      name: 'Cloudflare DNS',
+      method: 'TCP_PING',
+      target: 'one.one.one.one:53',  // 域名:端口
+      tooltip: 'Ping Cloudflare DNS',
+      timeout: 5000,
+    },
   ],
   notification: {
     // [Optional] apprise API server URL
