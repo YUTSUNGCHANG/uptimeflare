@@ -86,6 +86,7 @@ const workerConfig: WorkerConfig = {
       hideLatencyChart: false,
       expectedCodes: [200],
       timeout: 10000,
+      checkProxy: 'worker://apac',
     },
     {
       id: 'myip',
@@ -97,6 +98,7 @@ const workerConfig: WorkerConfig = {
       hideLatencyChart: false,
       expectedCodes: [200],
       timeout: 10000,
+      checkProxy: 'worker://apac',
     },
     {
       id: 'Alert',
@@ -108,6 +110,7 @@ const workerConfig: WorkerConfig = {
       hideLatencyChart: false,
       expectedCodes: [200],
       timeout: 10000,
+      checkProxy: 'worker://apac',
     },
     {
       id: 'Splunk',
@@ -119,6 +122,7 @@ const workerConfig: WorkerConfig = {
       hideLatencyChart: false,
       expectedCodes: [200],
       timeout: 10000,
+      checkProxy: 'worker://apac',
     },    
     {
       id: 'google_dns_ping',
@@ -127,15 +131,17 @@ const workerConfig: WorkerConfig = {
       target: '8.8.8.8:53',  // IP 地址后跟标准端口
       tooltip: 'Ping Google DNS',
       timeout: 5000,  // 5 秒超时
+      checkProxy: 'worker://apac',
     },
     {
-        id: 'cloudflare_dns_tcp_ping',
-        name: 'Cloudflare DNS TCP Ping',
-        method: 'TCP_PING',
-        target: '1.1.1.1:853',
-        tooltip: '這是 Cloudflare DNS 的 TCP 監控。',
-        statusPageLink: 'https://one.one.one.one',
-        timeout: 3000,
+      id: 'cloudflare_dns_tcp_ping',
+      name: 'Cloudflare DNS TCP Ping',
+      method: 'TCP_PING',
+      target: '1.1.1.1:853',
+      tooltip: '這是 Cloudflare DNS 的 TCP 監控。',
+      statusPageLink: 'https://one.one.one.one',
+      timeout: 3000,
+      checkProxy: 'worker://apac',
     },
   ],
   notification: {
