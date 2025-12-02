@@ -13,7 +13,7 @@ const pageConfig: PageConfig = {
   // If specified, monitors will be grouped and ordered, not-listed monitors will be invisble (but still monitored)
   group: {
     '💓 核心系统': ['live_ninja'],
-    '✨ DNS服務': ['google_dns_ping', 'cloudflare_ping'],
+    '✨ DNS服務': ['google_dns_ping', 'cloudflare_dns_tcp_ping'],
     '🛠️ 輔助功能': ['myip', 'Alert'],
     '🧪 開發環境': ['Splunk'],
   },
@@ -129,12 +129,13 @@ const workerConfig: WorkerConfig = {
       timeout: 5000,  // 5 秒超时
     },
     {
-      id: 'cloudflare_ping',
-      name: 'Cloudflare DNS',
-      method: 'TCP_PING',
-      target: 'one.one.one.one:53',  // 域名:端口
-      tooltip: 'Ping Cloudflare DNS',
-      timeout: 5000,
+        id: 'cloudflare_dns_tcp_ping',
+        name: 'Cloudflare DNS TCP Ping',
+        method: 'TCP_PING',
+        target: '1.1.1.1:853',
+        tooltip: '這是 Cloudflare DNS 的 TCP 監控。',
+        statusPageLink: 'https://one.one.one.one',
+        timeout: 3000,
     },
   ],
   notification: {
